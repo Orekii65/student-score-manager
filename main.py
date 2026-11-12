@@ -41,6 +41,17 @@ def delete_student(students):
     else:
         students.remove(thestudent)
         print(f"删除成功：{name}")
+
+
+def calculate_average(students):
+    total=0
+    if len(students)==0:
+        return 0
+    else:
+        for student in students:
+            total+=student["score"]
+        average=total/len(students)
+        return average
 def main():
     students=[]
     while True:
@@ -53,7 +64,8 @@ def main():
         elif request == "3":
             query_student(students)
         elif request=='4':
-            print('平均分功能开发中')
+            average=calculate_average(students)
+            print(f"平均分:{average:.1f}")
         elif request=='5':
             print("程序结束")
             break
