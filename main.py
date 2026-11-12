@@ -33,6 +33,14 @@ def query_student(students):
         print(f"成绩：{thestudent['score']:.1f}")
 
 
+def delete_student(students):
+    name=input("请输入要删除的学生姓名：").strip()
+    thestudent=find_student(students,name)
+    if thestudent is None:
+        print("未找到该学生，无法删除")
+    else:
+        students.remove(thestudent)
+        print(f"删除成功：{name}")
 def main():
     students=[]
     while True:
@@ -41,7 +49,7 @@ def main():
         if request=='1':
             add_student(students)
         elif request=='2':
-            print('删除学生功能开发中')
+            delete_student(students)
         elif request == "3":
             query_student(students)
         elif request=='4':
