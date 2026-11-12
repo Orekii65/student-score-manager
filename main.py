@@ -8,18 +8,18 @@ def show_menu():
 def main():
     students = []
     request=0
-    while request!=5:
+    while True:
         show_menu()
-        request=int(input('请选择功能：'))
-        if request==1:
+        request=input('请选择功能：')
+        if request=='1':
             print('添加学生功能开发中')
-        elif request==2:
+        elif request=='2':
             print('删除学生功能开发中')
-        elif request==3:
+        elif request=='3':
             print('查询学生功能开发中')
-        elif request==4:
+        elif request=='4':
             print('平均分功能开发中')
-        elif request==5:
+        elif request=='5':
             print("程序结束")
             break
         else:
