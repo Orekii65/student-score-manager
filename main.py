@@ -1,3 +1,22 @@
+import json
+
+DATA_FILE="students.json"
+
+def save_students(students):
+    with open(DATA_FILE,"w",encoding="utf-8") as f:
+        json.dump(students,f,ensure_ascii=False,indent=2)
+
+
+def load_students():
+    try:
+        with open(DATA_FILE,"r",encoding="utf-8") as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return []
+    except json.JSONDecodeError:
+        return []
+        
+
 def show_menu():
     print("学生成绩管理系统")
     print("1. 添加学生")
@@ -12,6 +31,7 @@ def add_student(students):
     student["name"]=input('请输入学生姓名:')
     student['score']=float(input('请输入学生成绩:'))
     students.append(student)
+    save_students(students)
     print(f"添加成功:{student['name']},成绩:{student['score']:.1f}")
 
 
@@ -40,6 +60,7 @@ def delete_student(students):
         print("未找到该学生，无法删除")
     else:
         students.remove(thestudent)
+        save_students(students)
         print(f"删除成功：{name}")
 
 
@@ -53,7 +74,7 @@ def calculate_average(students):
         average=total/len(students)
         return average
 def main():
-    students=[]
+    students=load_students()
     while True:
         show_menu()
         request=input('请选择功能：')
