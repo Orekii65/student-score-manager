@@ -71,9 +71,12 @@ python -m venv .venv
 | `calculate_average(students)` | 计算平均分 |
 | `main()` | 控制程序主循环 |
 
-## 当前说明
+## 数据保存
 
-当前版本的学生数据保存在程序内存中，程序退出后数据会被清空。
+学生数据保存在 `students.json` 文件中。
+
+程序启动时会自动读取数据，添加或删除学生后会自动保存。
+`students.json` 已加入 `.gitignore`，不会提交到 GitHub。
 
 ## 后续计划
 
