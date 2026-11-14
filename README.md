@@ -89,3 +89,9 @@ python -m venv .venv
 ## 项目状态
 
 核心功能已完成，并已通过手动功能测试。
+## 测试
+
+运行测试：
+
+```bash
+python -m pytest
